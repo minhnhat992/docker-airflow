@@ -75,6 +75,8 @@ RUN set -ex \
     && pip install pip install facebook_business \
     && pip install googleads \
     && pip install 'redis==3.2' \
+    && pip uninstall -y SQLAlchemy \
+    && pip install SQLAlchemy==1.3.15 \
     && if [ -n "${PYTHON_DEPS}" ]; then pip install ${PYTHON_DEPS}; fi \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
